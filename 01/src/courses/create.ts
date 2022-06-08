@@ -8,7 +8,16 @@ async function main() {
       duration: 300,
       name: "Curso de Java",
       description: "Curso excelente de Java",
-      
+      teacher: {
+        connectOrCreate:{
+          where:{
+            name:"Daniele Leão Evangelista"
+          },
+          create:{
+            name:"Daniele Leão Evangelista"
+          }
+        }
+      }
     },
   });
 

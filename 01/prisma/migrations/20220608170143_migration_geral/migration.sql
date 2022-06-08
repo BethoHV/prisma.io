@@ -5,6 +5,7 @@ CREATE TABLE `courses` (
     `description` VARCHAR(191) NULL,
     `duration` INTEGER NOT NULL,
     `created_at` DATETIME(3) NOT NULL DEFAULT CURRENT_TIMESTAMP(3),
+    `fk_id_teacher` VARCHAR(191) NOT NULL,
 
     UNIQUE INDEX `courses_name_key`(`name`),
     PRIMARY KEY (`id`)
@@ -34,7 +35,7 @@ CREATE TABLE `teachers` (
 ) DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
 
 -- AddForeignKey
-ALTER TABLE `modules` ADD CONSTRAINT `modules_teachersId_fkey` FOREIGN KEY (`teachersId`) REFERENCES `teachers`(`id`) ON DELETE RESTRICT ON UPDATE CASCADE;
+ALTER TABLE `courses` ADD CONSTRAINT `courses_fk_id_teacher_fkey` FOREIGN KEY (`fk_id_teacher`) REFERENCES `teachers`(`id`) ON DELETE RESTRICT ON UPDATE CASCADE;
 
 -- AddForeignKey
-ALTER TABLE `teachers` ADD CONSTRAINT `teachers_coursesId_fkey` FOREIGN KEY (`coursesId`) REFERENCES `courses`(`id`) ON DELETE SET NULL ON UPDATE CASCADE;
+ALTER TABLE `modules` ADD CONSTRAINT `modules_fk_id_teacher_fkey` FOREIGN KEY (`fk_id_teacher`) REFERENCES `teachers`(`id`) ON DELETE RESTRICT ON UPDATE CASCADE;

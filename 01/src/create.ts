@@ -6,8 +6,9 @@ async function main() {
   const result = await prisma.courses.create({
     data: {
       duration: 300,
-      name: "Curso de React Native",
-      description: "Curso excelente de React Native com Rodrigão",
+      name: "Curso de Java",
+      description: "Curso excelente de Java",
+      
     },
   });
 
